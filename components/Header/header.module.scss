@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap");
+
+.container {
+  height: 90px;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    font-family: "Sansita Swashed", cursive;
+    font-size: 32px;
+    width: 400px;
+    margin-top: -10px;
+  }
+
+  .searchBar {
+    border: 0;
+    display: flex;
+    max-width: 100px;
+    background-color: transparent;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  .rightContent {
+    display: flex;
+    font-weight: 500;
+    margin-left: auto;
+    .cartContainer {
+      font-weight: 500;
+    }
+  }
+}
