@@ -7,8 +7,8 @@
     max-width: 1240px;
     padding-left: 20px;
     padding-right: 20px;
-    height: 100%;
     width: 100%;
+    min-height: 100vh;
 
     .main {
       display: flex;

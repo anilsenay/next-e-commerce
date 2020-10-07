@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./categories.module.scss";
 import Link from "next/link";
+import HelpIcon from "@/icons/help";
 
 const CategoryItem = ({ name, link, emoji }) => {
   return (
@@ -29,6 +30,12 @@ export default function CategoriesBar() {
         <CategoryItem name="Gifts & Living" emoji="🎁" />
         <CategoryItem name="Inspiration" emoji="💎" />
       </ul>
+      <div className={styles.helpContainer}>
+        <div className={styles.helpIcon}>
+          <HelpIcon width={18} height={18} />
+        </div>
+        <span>Help Center</span>
+      </div>
     </div>
   );
 }
