@@ -7,5 +7,10 @@
     max-width: 1200px;
     height: 100%;
     width: 100%;
+
+    .main {
+      display: flex;
+      margin-top: 50px;
+    }
   }
 }
