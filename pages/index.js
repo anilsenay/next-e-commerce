@@ -10,7 +10,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>New In</h1>
+        <h1 className={styles.title}>
+          <span className={styles.emoji}>⚡</span>New In
+        </h1>
       </main>
     </div>
   );
