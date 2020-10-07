@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 250px;
+  flex-direction: column;
+
+  .title {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  .categories {
+    list-style: none;
+    padding: 0;
+
+    .categoryItem {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+
+      .emoji {
+        font-weight: 400;
+        font-family: apple color emoji, segoe ui emoji, noto color emoji,
+          android emoji, emojisymbols, emojione mozilla, twemoji mozilla,
+          segoe ui symbol;
+        font-size: 18px;
+        margin-right: 14px;
+      }
+    }
+  }
+}
