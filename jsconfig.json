@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/icons/*": ["components/icons/*"]
+    }
+  }
+}
