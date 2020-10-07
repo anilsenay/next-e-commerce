@@ -1,0 +1,8 @@
+.container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-areas:
+    "first first third fourth"
+    "second second third fourth";
+  gap: 20px;
+}
