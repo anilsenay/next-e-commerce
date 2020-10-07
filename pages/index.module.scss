@@ -1,15 +1,27 @@
 .container {
+  width: 100%;
   .main {
-    .title {
-      font-size: 28px;
-      margin: 0;
+    .header {
+      display: flex;
 
-      .emoji {
-        font-weight: 400;
-        font-family: apple color emoji, segoe ui emoji, noto color emoji,
-          android emoji, emojisymbols, emojione mozilla, twemoji mozilla,
-          segoe ui symbol;
-        margin-right: 10px;
+      .title {
+        font-size: 28px;
+        margin: 0;
+
+        .emoji {
+          font-weight: 400;
+          font-family: apple color emoji, segoe ui emoji, noto color emoji,
+            android emoji, emojisymbols, emojione mozilla, twemoji mozilla,
+            segoe ui symbol;
+          margin-right: 10px;
+        }
+      }
+
+      .headerButtons {
+        display: flex;
+        margin-left: auto;
+        font-size: 14px;
+        font-weight: bold;
       }
     }
   }
