@@ -4,6 +4,7 @@
   height: 90px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 
   .logo {
     font-family: "Sansita Swashed", cursive;
@@ -34,11 +35,10 @@
   }
   .rightContent {
     display: flex;
-    font-weight: 500;
+    font-weight: bold;
     margin-left: auto;
 
     .cartContainer {
-      font-weight: 500;
       display: flex;
       align-items: center;
 
