@@ -9,6 +9,27 @@
   direction: initial;
   overflow: hidden;
   position: relative;
+  transition: box-shadow 300ms ease-in-out;
+  -webkit-transition: box-shadow 300ms ease-in-out;
+  -moz-transition: box-shadow 300ms ease-in-out;
+  -ms-transition: box-shadow 300ms ease-in-out;
+  -o-transition: box-shadow 300ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    .imageContainer,
+    .bgImage,
+    .textContainer {
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+    }
+    .textContainer {
+      z-index: 10;
+    }
+  }
 
   .textContainer {
     display: flex;
@@ -18,10 +39,11 @@
     margin-right: auto;
     padding-left: 40px;
     justify-content: center;
+    transition: all 0.4s ease-in-out;
 
     h3 {
       margin-top: 0px;
-      z-index: 1;
+      z-index: 10;
       text-shadow: 2px 2px #00000022;
     }
 
@@ -37,6 +59,7 @@
     height: 50%;
     display: flex;
     justify-content: center;
+    transition: all 0.4s ease-in-out;
 
     .image {
       position: absolute;
@@ -49,5 +72,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
   }
 }
