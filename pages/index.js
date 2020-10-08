@@ -31,7 +31,12 @@ export default function Home() {
             title="Get up to 50% off"
             image="https://i.ibb.co/wL3nWkm/Pngtree-memphis-style-line-point-line-3797599.png"
           />
-          <HorizontalCard bgColor="#dec8f3" />
+          <HorizontalCard
+            bgColor="#dec8f3"
+            image="https://i.ibb.co/qdY3T5g/kindpng-53319.png"
+            title="New Jordan Series"
+            desc="Best of daily wear"
+          />
           <VerticalCard
             bgColor="#f6f6f6"
             name="Hugo Boss Leather Jacket"
@@ -62,8 +67,18 @@ export default function Home() {
           <VerticalCard bgColor="#f6f6f6" />
         </Products>
         <Products>
-          <HorizontalCard bgColor="#99E6B0" />
-          <HorizontalCard bgColor="#f3e6c8" />
+          <HorizontalCard
+            bgColor="#99E6B0"
+            image="https://i.ibb.co/0yKq1HK/kindpng-4043322.png"
+            title="End of season"
+            desc="Always sporty"
+          />
+          <HorizontalCard
+            bgColor="#f3e6c8"
+            image="https://i.ibb.co/68XpWPB/pngkey-com-ladies-purse-png-2499694.png"
+            title="New Accessories"
+            desc="Complete your combine"
+          />
           <VerticalCard bgColor="#f6f6f6" />
           <VerticalCard bgColor="#f6f6f6" />
         </Products>
