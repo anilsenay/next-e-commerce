@@ -1,0 +1,53 @@
+.verticalCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 175px;
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  direction: initial;
+  overflow: hidden;
+  position: relative;
+  max-width: 240px;
+  flex-wrap: wrap;
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: auto;
+    justify-content: center;
+    word-break: break-word;
+
+    h4 {
+      margin-top: 0px;
+      z-index: 1;
+      text-shadow: 2px 2px #00000022;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+
+    .image {
+      position: absolute;
+      top: -60px;
+      width: 130%;
+    }
+  }
+
+  .bgImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}

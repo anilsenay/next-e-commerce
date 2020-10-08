@@ -4,5 +4,7 @@
   grid-template-areas:
     "first first third fourth"
     "second second third fourth";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
 }
