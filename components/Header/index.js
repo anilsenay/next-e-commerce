@@ -43,7 +43,7 @@ export default function Header({ isSigned }) {
               Hello <span style={{ fontWeight: "normal" }}>Guest</span>
             </span>
             <ArrowIcon width={10} height={10} className={styles.arrowIcon} />
-            <div class={styles.dropdown}>
+            <div className={styles.dropdown}>
               <div className={styles.arrowUp} />
               <div className={styles.dropdownMenu}>
                 {isSigned ? (
