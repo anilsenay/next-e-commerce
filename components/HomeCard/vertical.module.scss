@@ -73,4 +73,21 @@
     left: 0;
     width: 100%;
   }
+
+  .favContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  }
 }
