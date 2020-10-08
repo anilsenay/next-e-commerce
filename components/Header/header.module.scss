@@ -51,17 +51,70 @@
       display: flex;
       align-items: center;
       margin-left: 50px;
+      position: relative;
 
       .profilePhoto {
         width: 32px;
         height: 32px;
         border-radius: 50px;
         margin-right: 14px;
+        z-index: 10;
       }
 
       .arrowIcon {
         margin-left: 8px;
         margin-top: 1px;
+        z-index: 10;
+      }
+
+      span {
+        z-index: 10;
+      }
+
+      .dropdown {
+        display: none;
+        position: absolute;
+        background-color: transparent;
+        z-index: 1;
+        top: 10px;
+        left: -50%;
+        padding: 20px;
+
+        .arrowUp {
+          width: 0;
+          height: 0;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+
+          border-bottom: 15px solid #f1f1f1;
+        }
+        .dropdownMenu {
+          background-color: #f1f1f1;
+          line-height: 42px;
+          font-size: 14px;
+        }
+      }
+
+      &:hover {
+        .dropdown {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-width: 300px;
+
+          .dropdownMenu {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            padding-right: 50px;
+            border: 1px solid #d6d6d6;
+            border-radius: 10px;
+            box-shadow: 0 4px 3px 1px rgba(0, 0, 0, 0.07);
+          }
+        }
       }
     }
   }

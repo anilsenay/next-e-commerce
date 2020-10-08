@@ -43,6 +43,13 @@ export default function Header() {
               Hello <span style={{ fontWeight: "normal" }}>Guest</span>
             </span>
             <ArrowIcon width={10} height={10} className={styles.arrowIcon} />
+            <div class={styles.dropdown}>
+              <div className={styles.arrowUp} />
+              <div className={styles.dropdownMenu}>
+                <Link href="/">Sign In</Link>
+                <Link href="/">Sign Out</Link>
+              </div>
+            </div>
           </div>
         </Link>
       </div>
