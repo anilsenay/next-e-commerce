@@ -19,7 +19,7 @@ export default function VerticalCard({
       </div>
       <div className={styles.textContainer}>
         <h4>{name}</h4>
-        <span className={styles.price}>{price}</span>
+        <span className={styles.price}>{price || 0}$</span>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 175px;
   height: 100%;
   border-radius: 10px;
@@ -20,6 +19,7 @@
     width: auto;
     justify-content: center;
     word-break: break-word;
+    flex-grow: 1;
 
     h4 {
       margin-top: 0px;
@@ -27,19 +27,27 @@
       text-shadow: 2px 2px #00000022;
       font-size: 14px;
       text-align: center;
+      line-height: 21px;
+    }
+
+    span {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
     }
   }
 
   .imageContainer {
     position: relative;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 65%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
 
     .image {
       position: absolute;
-      top: -60px;
       width: 130%;
     }
   }

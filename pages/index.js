@@ -34,11 +34,15 @@ export default function Home() {
           <HorizontalCard bgColor="#dec8f3" />
           <VerticalCard
             bgColor="#f6f6f6"
-            name="Adidas Originals  OriginalsOriginalsOrigina lsOriginals"
+            name="Hugo Boss Leather Jacket"
+            image="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
+            price="300"
           />
           <VerticalCard
             bgColor="#f6f6f6"
-            name="Adidas Originals  OriginalsOriginalsOrigina lsOriginals"
+            name="Polka-dotted slip dress"
+            image="https://i.ibb.co/xmJdGXD/kisspng-slip-dress-clothing-casual-fashion-model-5abb4a319d2986-8864671115222236656438.png"
+            price="200"
           />
         </Products>
         <Products reverse>
