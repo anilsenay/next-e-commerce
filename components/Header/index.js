@@ -7,7 +7,7 @@ import SearchIcon from "@/icons/search";
 import CartIcon from "@/icons/cart";
 import ArrowIcon from "@/icons/arrow";
 
-export default function Header() {
+export default function Header({ isSigned }) {
   return (
     <nav className={styles.container}>
       <Link href="/">
@@ -46,8 +46,19 @@ export default function Header() {
             <div class={styles.dropdown}>
               <div className={styles.arrowUp} />
               <div className={styles.dropdownMenu}>
-                <Link href="/">Sign In</Link>
-                <Link href="/">Sign Out</Link>
+                {isSigned ? (
+                  <>
+                    <Link href="/orders">My Orders</Link>
+                    <Link href="/account">My Account</Link>
+                    <Link href="/favorites">Favourites</Link>
+                    <Link href="/">Logout</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/login">Login</Link>
+                    <Link href="/register">Register</Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
