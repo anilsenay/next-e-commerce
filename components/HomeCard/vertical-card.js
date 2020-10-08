@@ -16,9 +16,9 @@ export default function VerticalCard({
       className={styles.verticalCard}
       style={{ backgroundColor: bgColor || "" }}
     >
-      <div className={styles.favContainer}>
+      <button className={styles.favContainer}>
         <HeartIcon width={16} height={16} />
-      </div>
+      </button>
       <div className={styles.imageContainer}>
         {image && <img className={styles.image} src={image} />}
       </div>
