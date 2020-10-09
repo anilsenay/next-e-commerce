@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import Link from "next/link";
 import SocialMediaButton from "@/components/SocialMediaButton";
 import emailLogin from "firebase/login";
+import googleAuth from "firebase/google-auth";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("* Email is required."),
@@ -93,7 +94,11 @@ export default function LoginForm() {
         Login with social media
       </span>
       <div style={{ display: "flex" }}>
-        <SocialMediaButton style={{ marginRight: 20 }} icon="google">
+        <SocialMediaButton
+          style={{ marginRight: 20 }}
+          icon="google"
+          onClick={googleAuth}
+        >
           Google
         </SocialMediaButton>
         <SocialMediaButton icon="apple">Apple</SocialMediaButton>
