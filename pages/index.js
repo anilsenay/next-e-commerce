@@ -6,7 +6,18 @@ import HorizontalCard from "components/HomeCard/horizontal-card";
 import VerticalCard from "components/HomeCard/vertical-card";
 import Products from "components/HomeProducts";
 
+import { db } from "config/firebase";
+
 export default function Home() {
+  db.collection("Users")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+      });
+    });
+
   return (
     <div className={styles.container}>
       <Head>
