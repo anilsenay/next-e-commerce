@@ -96,7 +96,7 @@ export default function RegisterForm() {
           fontWeight: "500",
         }}
       >
-        Login with E-mail
+        Register with E-mail
       </span>
 
       <Input

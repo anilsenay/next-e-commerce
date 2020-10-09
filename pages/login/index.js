@@ -1,11 +1,23 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 import styles from "./login.module.scss";
 import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
+import { auth } from "../../config/firebase";
 
 export default function LoginPage() {
   const [page, setPage] = useState("login");
+
+  const router = useRouter();
+
+  auth.onAuthStateChanged(function (user) {
+    if (user) {
+      console.log(user);
+      // router.push("/"); active it later
+    }
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
