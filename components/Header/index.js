@@ -55,8 +55,8 @@ export default function Header() {
               <div className={styles.dropdownMenu}>
                 {user ? (
                   <>
-                    <Link href="/orders">My Orders</Link>
                     <Link href="/account">My Account</Link>
+                    <Link href="/orders">My Orders</Link>
                     <Link href="/favorites">Favourites</Link>
                     <Link href="/">Logout</Link>
                   </>

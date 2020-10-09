@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 250px;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+
+  .title {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  .categories {
+    list-style: none;
+    padding: 0;
+
+    .sidebarItem {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      display: flex;
+      align-items: center;
+
+      .emoji {
+        font-weight: 400;
+        font-family: apple color emoji, segoe ui emoji, noto color emoji,
+          android emoji, emojisymbols, emojione mozilla, twemoji mozilla,
+          segoe ui symbol;
+        font-size: 18px;
+        margin-right: 14px;
+      }
+    }
+  }
+  .helpContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    margin-left: -10px;
+
+    .helpIcon {
+      padding: 15px;
+      background-color: #f6f7f9;
+      display: flex;
+      border-radius: 100%;
+      margin-right: 10px;
+      transform: scaleX(-1);
+    }
+  }
+}
