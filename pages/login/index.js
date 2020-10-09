@@ -20,6 +20,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.container}>
+      <a className={styles.logo}>Shopping</a>
       <div className={styles.content}>
         <div className={styles.switchContainer}>
           <button
