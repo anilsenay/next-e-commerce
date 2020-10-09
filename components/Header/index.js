@@ -9,7 +9,7 @@ import ArrowIcon from "@/icons/arrow";
 
 import { useAuth } from "@/firebase/context";
 
-export default function Header({ isSigned }) {
+export default function Header() {
   const { user } = useAuth();
 
   return (
@@ -53,7 +53,7 @@ export default function Header({ isSigned }) {
             <div className={styles.dropdown}>
               <div className={styles.arrowUp} />
               <div className={styles.dropdownMenu}>
-                {isSigned ? (
+                {user ? (
                   <>
                     <Link href="/orders">My Orders</Link>
                     <Link href="/account">My Account</Link>
