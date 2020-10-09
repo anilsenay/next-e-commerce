@@ -9,6 +9,8 @@ import Products from "components/HomeProducts";
 import { db } from "config/firebase";
 import Layout from "components/Layout";
 
+import { useAuth } from "../firebase/context";
+
 export default function Home() {
   db.collection("Users")
     .get()
@@ -18,6 +20,9 @@ export default function Home() {
         console.log(doc.id, " => ", doc.data());
       });
     });
+
+  const auth = useAuth();
+  console.log(auth);
 
   return (
     <Layout>

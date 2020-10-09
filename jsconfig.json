@@ -4,7 +4,9 @@
     "paths": {
       "@/icons/*": ["components/icons/*"],
       "@/styles/*": ["styles/*"],
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/config/*": ["config/*"],
+      "@/firebase/*": ["firebase/*"]
     }
   }
 }
