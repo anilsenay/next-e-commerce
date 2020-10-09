@@ -7,7 +7,11 @@ import SearchIcon from "@/icons/search";
 import CartIcon from "@/icons/cart";
 import ArrowIcon from "@/icons/arrow";
 
+import { useAuth } from "@/firebase/context";
+
 export default function Header({ isSigned }) {
+  const { user } = useAuth();
+
   return (
     <nav className={styles.container}>
       <Link href="/">
@@ -36,11 +40,14 @@ export default function Header({ isSigned }) {
         <Link href="/">
           <div className={styles.profileContainer}>
             <img
-              src="https://picsum.photos/200/200"
+              src={user?.photoUrl || "https://picsum.photos/200/200"}
               className={styles.profilePhoto}
             />
             <span>
-              Hello <span style={{ fontWeight: "normal" }}>Guest</span>
+              Hello{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {user?.name || "Guest"}
+              </span>
             </span>
             <ArrowIcon width={10} height={10} className={styles.arrowIcon} />
             <div className={styles.dropdown}>
