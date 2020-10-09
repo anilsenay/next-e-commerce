@@ -1,0 +1,18 @@
+.container {
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background-color: transparent;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  svg {
+    margin-right: 14px;
+  }
+}
