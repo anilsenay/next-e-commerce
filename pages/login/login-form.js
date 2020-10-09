@@ -1,34 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Link from "next/link";
 import SocialMediaButton from "@/components/SocialMediaButton";
+import emailLogin from "firebase/login";
+
+const schema = yup.object().shape({
+  email: yup.string().email().required("* Email is required."),
+  password: yup
+    .string()
+    .required("* Password is required.")
+    .min(8, "* Password is too short - should be 8 chars minimum."),
+});
 
 export default function LoginForm() {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [loginError, setLoginError] = useState();
 
+  const { register, handleSubmit, watch, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    emailLogin({ email: data.email, password: data.password }).catch((e) =>
+      setLoginError(e.message)
+    );
+  };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       style={{ display: "flex", flexDirection: "column" }}
     >
-      {/* register your input into the hook by invoking the "register" function */}
-      <Input name="email" ref={register} placeholder="E-mail" />
+      <Input
+        name="email"
+        register={register}
+        placeholder="E-mail"
+        error={errors.email}
+      />
+      {errors.email && (
+        <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
+          {errors.email.message}
+        </span>
+      )}
 
-      {/* include validation with required or other standard HTML validation rules */}
       <Input
         name="password"
-        ref={register({ required: true })}
+        register={register}
         placeholder="Password"
         type="password"
+        error={errors.password}
       />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
+      {errors.password && (
+        <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
+          {errors.password.message}
+        </span>
+      )}
 
       <Button type="submit">Login</Button>
+      {loginError && (
+        <span
+          style={{
+            color: "red",
+            marginTop: -10,
+            fontSize: 14,
+            marginBottom: 10,
+          }}
+        >
+          {loginError}
+        </span>
+      )}
       <span style={{ fontWeight: "bold", marginBottom: 60 }}>
         <Link href="/forgot-password">Forgot Password?</Link>
       </span>

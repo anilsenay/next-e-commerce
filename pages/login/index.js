@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import styles from "./login.module.scss";
 import LoginForm from "./login-form";
+import RegisterForm from "./register-form";
 
 export default function LoginPage() {
   const [page, setPage] = useState("login");
@@ -26,7 +27,7 @@ export default function LoginPage() {
             <span>Register</span>
           </button>
         </div>
-        <LoginForm />
+        {page === "login" ? <LoginForm /> : <RegisterForm />}
       </div>
     </div>
   );

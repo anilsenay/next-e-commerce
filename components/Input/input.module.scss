@@ -1,11 +1,16 @@
 .container {
-  padding: 20px;
+  padding: 18px;
   background-color: #f6f6f6;
-  border: none;
+  border: 2px solid #f6f6f6;
   border-radius: 16px;
   font-size: 16px;
   color: black;
   margin-top: 20px;
+  width: 100%;
+
+  &:hover {
+    background-color: #f6f6f655;
+  }
 
   &::placeholder {
     color: grey;
