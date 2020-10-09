@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 70px;
+
+    .switchContainer {
+      background-color: #f6f6f6;
+      border: 2px solid #eee;
+      border-radius: 16px;
+
+      .switchButton {
+        padding: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        border: none;
+        border-radius: 16px;
+        background-color: transparent;
+        min-width: 150px;
+
+        span {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

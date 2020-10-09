@@ -1,0 +1,13 @@
+.container {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  color: black;
+  margin-top: 20px;
+
+  &::placeholder {
+    color: grey;
+  }
+}
