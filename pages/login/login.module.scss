@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: center;
 
+  button {
+    cursor: pointer;
+  }
+
   .content {
     border: 1px solid #eee;
     border-radius: 16px;
