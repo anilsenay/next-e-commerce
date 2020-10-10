@@ -24,7 +24,7 @@ export default function AccountSidebar() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>{user?.name + " " + user?.surname}</h2>
+      <h2 className={styles.title}>Menu</h2>
       <ul className={styles.categories}>
         <SidebarItem name="Account" emoji="🔒" />
         <SidebarItem name="Orders" emoji="📦" />
