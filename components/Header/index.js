@@ -56,8 +56,8 @@ export default function Header() {
                 {user ? (
                   <>
                     <Link href="/account">My Account</Link>
-                    <Link href="/orders">My Orders</Link>
-                    <Link href="/favorites">Favourites</Link>
+                    <Link href="/account/orders">My Orders</Link>
+                    <Link href="/account/favorites">Favourites</Link>
                     <Link href="/account/logout">Logout</Link>
                   </>
                 ) : (
