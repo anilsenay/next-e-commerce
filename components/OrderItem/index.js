@@ -1,8 +1,12 @@
 import React from "react";
 
 import styles from "./order.module.scss";
+import { useAddress } from "hooks/address.hook";
 
-export default function OrderItem() {
+export default function OrderItem({ data }) {
+  const address = useAddress(data.address);
+  const { title, region, city, full_address, zipcode } = address.data;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -12,15 +16,15 @@ export default function OrderItem() {
         </div>
         <div>
           <h4>Order Summary</h4>
-          <span>3 product</span>
+          <span>{data.products.length} product</span>
         </div>
         <div>
           <h4>Status</h4>
-          <span>On shipping</span>
+          <span>{data.status}</span>
         </div>
         <div>
           <h4>Price</h4>
-          <span>79.99 $</span>
+          <span>{data.total_price} $</span>
         </div>
       </div>
       <hr />
@@ -38,12 +42,19 @@ export default function OrderItem() {
       <div className={styles.addressContainer}>
         <details>
           <summary>Show Adress</summary>
-          <p>
-            <span className={styles.title}>Address Title: </span>My Home
-          </p>
-          <p>Full address</p>
-          <p>City / Zipcode</p>
-          <p>Region</p>
+          {!address.loading && (
+            <>
+              <p>
+                <span className={styles.title}>Address Title: </span>
+                {title}
+              </p>
+              <p>{full_address}</p>
+              <p>
+                {city} / {zipcode}
+              </p>
+              <p>{region}</p>
+            </>
+          )}
         </details>
       </div>
     </div>

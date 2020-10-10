@@ -6,9 +6,14 @@ import Layout from "@/components/Layout";
 import styles from "./orders.module.scss";
 import { useAuth } from "@/firebase/context";
 import OrderItem from "@/components/OrderItem";
+import { useOrders } from "hooks/order.hook";
 
 export default function Orders() {
   const { user } = useAuth();
+
+  const { data, loading } = useOrders();
+
+  console.log(data);
 
   return (
     <Layout noCategories>
@@ -16,11 +21,11 @@ export default function Orders() {
       <main className={styles.container}>
         <h1 className={styles.title}>My Orders</h1>
         <div className={styles.content}>
-          {user?.orders?.length === 0 ? (
+          {data?.length === 0 ? (
             <span>You have not any order</span>
           ) : (
             <div className={styles.orders}>
-              {user?.orders?.map((item) => {
+              {data?.map((item) => {
                 return <OrderItem data={item} />;
               })}
             </div>
