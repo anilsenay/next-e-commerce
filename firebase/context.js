@@ -31,6 +31,6 @@ function useProvideAuth() {
 
   return {
     user,
-    getCurrentUser,
+    setUser,
   };
 }
