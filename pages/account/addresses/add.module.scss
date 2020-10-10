@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #99999999;
+  align-items: center;
+  justify-content: center;
+
+  hr {
+    color: #f6f6f655;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -20px;
+    width: inherit;
+  }
+
+  .content {
+    width: 30vw;
+    padding: 20px;
+    background-color: white;
+    border-radius: 16px;
+    z-index: 200;
+    position: relative;
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding-bottom: 5px;
+
+      h4 {
+        margin: 0;
+        margin-right: auto;
+        font-size: 18px;
+      }
+
+      div {
+        font-size: 30px;
+        cursor: pointer;
+        padding: 8px;
+        line-height: 20px;
+      }
+    }
+
+    .inputContainer {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+  }
+}
