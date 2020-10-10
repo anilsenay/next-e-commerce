@@ -1,0 +1,53 @@
+.container {
+  width: 260px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+
+  hr {
+    color: #f6f6f655;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .header {
+    display: flex;
+
+    h4 {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  .addressContainer {
+    font-size: 14px;
+  }
+
+  .buttons {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    margin-top: auto;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .delete {
+      color: red;
+      margin-right: auto;
+    }
+    .update {
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+}
