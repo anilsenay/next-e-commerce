@@ -29,4 +29,19 @@ const updateAddress = ({ id, title, city, region, zipcode, full_address }) => {
   });
 };
 
-export { addAddress, updateAddress };
+const deleteAddress = ({ id }) => {
+  return db
+    .collection("Addresses")
+    .doc(id)
+    .delete()
+    .then(() => {
+      db.collection("Users")
+        .doc(auth.currentUser.uid)
+        .update({
+          addresses: firebase.firestore.FieldValue.arrayRemove(id),
+        })
+        .finally(() => window.location.reload(false)); // reload page
+    });
+};
+
+export { addAddress, updateAddress, deleteAddress };
