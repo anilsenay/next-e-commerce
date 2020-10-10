@@ -4,8 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import styles from "./add.module.scss";
+
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+
+import { addAddress } from "@/firebase/addresses";
 
 const schema = yup.object().shape({
   title: yup
@@ -26,7 +29,7 @@ export default function AddAddress({ closeEvent }) {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => addAddress(data);
 
   const closeModal = (target) => {
     target?.id === "container" && closeEvent();
