@@ -47,6 +47,7 @@ const schema2 = yup.object().shape({
 
 export default function AccountPage() {
   const [passwordError, setError] = useState(null);
+  const [photo, setPhoto] = useState(null);
   const { user } = useAuth();
 
   const { register, handleSubmit, watch, errors } = useForm({
@@ -63,9 +64,14 @@ export default function AccountPage() {
   });
 
   const onSubmit = ({ email, phone, name, surname }) => {
-    updateUser({ email, phone, name, surname }).finally(() =>
-      window.location.reload(false)
-    );
+    updateUser({
+      email,
+      phone,
+      name,
+      surname,
+      photo,
+      finalEvent: () => window.location.reload(false),
+    });
   };
 
   const changePassword = ({ currentPassword, newPassword }) => {
@@ -79,7 +85,7 @@ export default function AccountPage() {
       )
       .catch((e) => setError(e.message));
   };
-
+  console.log(photo);
   return (
     <Layout noCategories>
       <AccountSidebar />
@@ -152,6 +158,19 @@ export default function AccountPage() {
                   {errors.phone.message}
                 </span>
               )}
+              <div className={styles.inputContainer}>
+                <span>Profile Photo</span>
+
+                <label className={styles.uploadButton}>
+                  <input
+                    type="file"
+                    onChange={(e) => setPhoto(e.target.files[0])}
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                  {photo?.name || "Select File"}
+                </label>
+              </div>
               <Button type="submit" name="update_button" value="Update">
                 Update
               </Button>
