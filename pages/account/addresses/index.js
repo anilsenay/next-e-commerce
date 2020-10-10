@@ -25,7 +25,7 @@ export default function Addresses() {
         <h1 className={styles.title}>My Addresses</h1>
         <div className={styles.content}>
           {loading ? (
-            <span>loading...</span>
+            <span>Loading...</span>
           ) : data.length === 0 ? (
             <div style={{ display: "flex", flexDirection: "column" }}>
               <p>You have not any address</p>

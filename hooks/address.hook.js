@@ -20,7 +20,7 @@ const useAddresses = () => {
                 .get()
                 .then(function (querySnapshot) {
                   const addressArray = querySnapshot.docs.map(function (doc) {
-                    return doc.data();
+                    return { id: doc.id, ...doc.data() };
                   });
                   setData(addressArray);
                   setLoading(false);

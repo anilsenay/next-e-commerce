@@ -19,4 +19,14 @@ const addAddress = ({ title, city, region, zipcode, full_address }) => {
     });
 };
 
-export { addAddress };
+const updateAddress = ({ id, title, city, region, zipcode, full_address }) => {
+  return db.collection("Addresses").doc(id).update({
+    title,
+    city,
+    region,
+    zipcode,
+    full_address,
+  });
+};
+
+export { addAddress, updateAddress };

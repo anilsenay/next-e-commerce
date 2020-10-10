@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./address-card.module.scss";
 
+import UpdateAddress from "./update-address";
+
 export default function AddressCard({ data }) {
+  const [toggleModal, setModal] = useState(false);
   const { title, full_address, zipcode, region, city } = data;
   return (
     <div className={styles.container}>
@@ -19,8 +22,13 @@ export default function AddressCard({ data }) {
         <button className={styles.delete} onClick={() => console.log("s")}>
           Delete
         </button>
-        <button className={styles.update}>Update</button>
+        <button className={styles.update} onClick={() => setModal(true)}>
+          Update
+        </button>
       </div>
+      {toggleModal && (
+        <UpdateAddress addressData={data} closeEvent={() => setModal(false)} />
+      )}
     </div>
   );
 }
