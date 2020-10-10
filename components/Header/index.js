@@ -58,7 +58,7 @@ export default function Header() {
                     <Link href="/account">My Account</Link>
                     <Link href="/orders">My Orders</Link>
                     <Link href="/favorites">Favourites</Link>
-                    <Link href="/">Logout</Link>
+                    <Link href="/account/logout">Logout</Link>
                   </>
                 ) : (
                   <>

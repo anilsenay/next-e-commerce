@@ -9,7 +9,7 @@ import { useAuth } from "@/firebase/context";
 const SidebarItem = ({ name, link, emoji }) => {
   return (
     <li className={styles.sidebarItem}>
-      <Link href="/">
+      <Link href={link || "/account"}>
         <a>
           <span className={styles.emoji}>{emoji}</span>
           <span className={styles.categoryName}>{name}</span>
@@ -30,7 +30,7 @@ export default function AccountSidebar() {
         <SidebarItem name="Orders" emoji="📦" />
         <SidebarItem name="Favourites" emoji="❤️" />
         <SidebarItem name="Addresses" emoji="🏘️" />
-        <SidebarItem name="Logout" emoji="🚪" />
+        <SidebarItem name="Logout" emoji="🚪" link="/account/logout" />
       </ul>
       <div className={styles.helpContainer}>
         <div className={styles.helpIcon}>
