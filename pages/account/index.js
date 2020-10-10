@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -10,7 +10,7 @@ import Layout from "@/components/Layout";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 
-import { updateUser } from "@/firebase/update-user";
+import { updateUser, updatePassword } from "@/firebase/update-user";
 
 const schema = yup.object().shape({
   name: yup
@@ -31,17 +31,53 @@ const schema = yup.object().shape({
     }),
 });
 
+const schema2 = yup.object().shape({
+  currentPassword: yup
+    .string()
+    .required("* Current Password is required.")
+    .min(8, "* Password is too short - should be 8 chars minimum."),
+  newPassword: yup
+    .string()
+    .required("* New Password is required.")
+    .min(8, "* Password is too short - should be 8 chars minimum."),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("newPassword"), null], "Passwords must match"),
+});
+
 export default function AccountPage() {
+  const [passwordError, setError] = useState(null);
   const { user } = useAuth();
 
   const { register, handleSubmit, watch, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const {
+    register: register2,
+    handleSubmit: handleSubmit2,
+    errors: errors2,
+    getValues,
+  } = useForm({
+    resolver: yupResolver(schema2),
+  });
+
   const onSubmit = ({ email, phone, name, surname }) => {
     updateUser({ email, phone, name, surname }).finally(() =>
       window.location.reload(false)
     );
+  };
+
+  const changePassword = ({ currentPassword, newPassword }) => {
+    const { reauth, update } = updatePassword({ currentPassword, newPassword });
+
+    reauth()
+      .then(() =>
+        update()
+          .then(() => setError("Password Changed!"))
+          .catch((e) => setError(e.message))
+      )
+      .catch((e) => setError(e.message));
   };
 
   return (
@@ -52,7 +88,7 @@ export default function AccountPage() {
         <div className={styles.content}>
           <div className={styles.accountContainer}>
             <h4>Account Details</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form key="account-form" onSubmit={handleSubmit(onSubmit)}>
               <div className={styles.inputContainer}>
                 <span>Name</span>
                 <Input
@@ -124,19 +160,64 @@ export default function AccountPage() {
           <hr />
           <div className={styles.passwordContainer}>
             <h4>Change Password</h4>
-            <div className={styles.inputContainer}>
-              <span>Current Password</span>
-              <Input placeholder="Current Password" noMargin />
-            </div>
-            <div className={styles.inputContainer}>
-              <span>New Password</span>
-              <Input placeholder="New Password" noMargin />
-            </div>
-            <div className={styles.inputContainer}>
-              <span>Confirm New Password</span>
-              <Input placeholder="Confirm New Password" noMargin />
-            </div>
-            <Button>Confirm</Button>
+            <form key="password-form" onSubmit={handleSubmit2(changePassword)}>
+              <div className={styles.inputContainer}>
+                <span>Current Password</span>
+                <Input
+                  name="currentPassword"
+                  register={register2}
+                  placeholder="Current Password"
+                  noMargin
+                />
+              </div>
+              <div className={styles.inputContainer}>
+                <span>New Password</span>
+                <Input
+                  name="newPassword"
+                  register={register2}
+                  placeholder="New Password"
+                  noMargin
+                />
+              </div>
+              {errors2.newPassword && (
+                <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
+                  {errors2.newPassword.message}
+                </span>
+              )}
+              <div className={styles.inputContainer}>
+                <span>Confirm New Password</span>
+                <Input
+                  name="confirmPassword"
+                  register={register2}
+                  placeholder="Confirm New Password"
+                  noMargin
+                />
+              </div>
+              {errors2.confirmPassword && (
+                <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
+                  {errors2.confirmPassword.message}
+                </span>
+              )}
+              {passwordError && (
+                <span
+                  style={{
+                    color:
+                      passwordError === "Password Changed!" ? "black" : "red",
+                    marginTop: 4,
+                    fontSize: 14,
+                  }}
+                >
+                  {passwordError}
+                </span>
+              )}
+              <Button
+                type="submit"
+                name="password_button"
+                value="Change Password"
+              >
+                Confirm
+              </Button>
+            </form>
           </div>
         </div>
       </main>
