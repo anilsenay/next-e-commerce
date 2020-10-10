@@ -10,41 +10,19 @@
 
   .content {
     display: flex;
-    margin-top: 20px;
+    margin-top: 40px;
 
-    h4 {
-      margin-bottom: 30px;
-    }
-    .accountContainer {
-      width: 45%;
-      margin-right: auto;
-    }
-    .passwordContainer {
-      width: 45%;
-    }
-    hr {
-      color: #f6f6f655;
-    }
-    .inputContainer {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      align-items: center;
-      margin-bottom: 20px;
-      gap: 10px;
-    }
-
-    .uploadButton {
-      padding: 20px;
-      background-color: black;
-      border-radius: 16px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      width: 100%;
-      cursor: pointer;
+    .orders {
       display: flex;
-      justify-content: center;
-      word-break: break-all;
+      flex-direction: column;
+      width: 100%;
+
+      .order {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 16px;
+      }
     }
   }
 }

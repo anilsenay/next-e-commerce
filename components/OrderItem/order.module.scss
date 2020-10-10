@@ -1,0 +1,53 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+
+  hr {
+    color: #f6f6f655;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    div {
+      margin-right: auto;
+      text-align: center;
+      width: 100%;
+
+      h4 {
+        margin: 0;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .productPhotos {
+    display: flex;
+
+    .photo {
+      border: 1px solid #eee;
+      padding: 10px;
+      border-radius: 16px;
+      width: 100px;
+      height: 150px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+  }
+
+  .addressContainer {
+    font-size: 14px;
+
+    .title {
+      font-weight: bold;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
