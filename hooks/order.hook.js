@@ -25,8 +25,8 @@ const useOrders = () => {
                     .map(function (doc) {
                       return {
                         id: doc.id,
-                        date: doc.data().date.toDate(),
                         ...doc.data(),
+                        date: doc.data().date.toDate(),
                       };
                     });
                   setData(ordersArray);
