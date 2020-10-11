@@ -110,7 +110,7 @@ Product.getInitialProps = async function ({ query }) {
   let error = {};
   await db
     .collection("Products")
-    .doc(query.name)
+    .doc(query.product)
     .get()
     .then(function (doc) {
       data = doc.data();

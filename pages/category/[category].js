@@ -25,9 +25,9 @@ export default function Category({ data, query }) {
   console.log(data);
 
   const formattedName =
-    query.name === "gifts_and_living"
+    query.category === "gifts_and_living"
       ? "Gifts & Living"
-      : query.name[0].toUpperCase() + query.name.slice(1);
+      : query.name[0].toUpperCase() + query.category.slice(1);
 
   return (
     <Layout>
@@ -40,7 +40,7 @@ export default function Category({ data, query }) {
         <main className={styles.main}>
           <div className={styles.header}>
             <h1 className={styles.title}>
-              <span className={styles.emoji}>{getEmoji[query.name]}</span>
+              <span className={styles.emoji}>{getEmoji[query.category]}</span>
               {formattedName}
             </h1>
             <div className={styles.headerButtons}>
@@ -60,7 +60,7 @@ Category.getInitialProps = async function ({ query }) {
 
   await db
     .collection("Products")
-    .where("category", "==", query.name.toLowerCase())
+    .where("category", "==", query.category.toLowerCase())
     .get()
     .then(function (querySnapshot) {
       const products = querySnapshot.docs.map(function (doc) {
