@@ -1,0 +1,108 @@
+.container {
+  width: 100%;
+
+  .main {
+    display: flex;
+
+    .photosContainer {
+      height: 100%;
+      width: max-content;
+
+      img {
+        max-width: 500px;
+      }
+    }
+    .productInfos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        .productTitle {
+          font-size: 28px;
+          margin: 0;
+        }
+        a {
+          font-size: 20px;
+          margin: 0;
+          color: #376ed7;
+        }
+      }
+
+      .priceText {
+        font-size: 24px;
+        color: grey;
+        text-decoration: line-through;
+        font-weight: 500;
+      }
+      .saleContainer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .saleText {
+          font-size: 30px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+
+        .savedText {
+          color: green;
+          font-weight: 500;
+        }
+      }
+
+      .sizes {
+        h4 {
+          margin: 0;
+          margin-bottom: 10px;
+        }
+        button {
+          border: 2px solid #eee;
+          border-radius: 4px;
+          background-color: transparent;
+          margin: 0;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          padding: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .favButton {
+          border: 2px solid #eee;
+          border-radius: 4px;
+          background-color: transparent;
+          margin: 0;
+          margin-left: 20px;
+          padding: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: flex;
+          align-items: center;
+        }
+      }
+      .infoContainer {
+        h4 {
+          margin: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  hr {
+    color: #f6f6f655;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
