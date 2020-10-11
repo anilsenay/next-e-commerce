@@ -6,16 +6,48 @@
 
     .photosContainer {
       height: 100%;
-      width: max-content;
+      width: 100%;
+      position: relative;
+      margin-right: 20px;
 
-      img {
-        max-width: 500px;
+      .carouselContainer {
+        position: relative;
+        .carousel {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          display: flex;
+        }
+        img {
+          max-width: 500px;
+        }
+      }
+
+      .smallPhotos {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+        img {
+          max-width: 80px;
+          border: 2px solid #eee;
+          border-radius: 6px;
+          padding: 10px;
+          margin-right: 10px;
+          cursor: pointer;
+
+          &:hover {
+            border: 2px solid #ddd;
+          }
+        }
       }
     }
     .productInfos {
       display: flex;
       flex-direction: column;
       width: 100%;
+      background-color: #fff;
       .header {
         display: flex;
         flex-direction: column;
@@ -69,6 +101,7 @@
           padding: 10px;
           padding-left: 15px;
           padding-right: 15px;
+          cursor: pointer;
         }
       }
 
@@ -88,6 +121,7 @@
           padding-right: 15px;
           display: flex;
           align-items: center;
+          cursor: pointer;
         }
       }
       .infoContainer {

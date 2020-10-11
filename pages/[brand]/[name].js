@@ -8,14 +8,24 @@ import Link from "next/link";
 import { useState } from "react";
 import Button from "@/components/Button";
 import HeartIcon from "@/icons/heart";
+import { useAuth } from "@/firebase/context";
+import { useProduct } from "hooks/product.hook";
+import { db } from "@/config/firebase";
 
-export default function Product() {
+export default function Product({ data }) {
   const [selectedSize, setSelectedSize] = useState();
+  const [selectedPhoto, setSelectedPhoto] = useState(0);
 
-  const router = useRouter();
-  const { brand, name } = router.query;
-
-  const sizes = ["S", "M", "L", "XL", "XXL"];
+  const {
+    brand,
+    cover_photo,
+    information,
+    photos,
+    price,
+    product_name,
+    sale_price,
+    sizes,
+  } = data;
 
   return (
     <Layout>
@@ -27,18 +37,34 @@ export default function Product() {
 
         <main className={styles.main}>
           <div className={styles.photosContainer}>
-            <img src="https://productimages.hepsiburada.net/s/42/550/10728905572402.jpg" />
+            <div className={styles.carouselContainer}>
+              <img src={photos[selectedPhoto]} loading="lazy" />
+            </div>
+            <div className={styles.smallPhotos}>
+              {photos.slice(0, 5).map((image, index) => {
+                return (
+                  <img
+                    key={index}
+                    src={image}
+                    className={styles.smallPhoto}
+                    style={{ borderColor: selectedPhoto === index && "black" }}
+                    onClick={() => setSelectedPhoto(index)}
+                    loading="lazy"
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className={styles.productInfos}>
             <div className={styles.header}>
-              <h1 className={styles.productTitle}>{name || ""}</h1>
+              <h1 className={styles.productTitle}>{product_name || ""}</h1>
               <Link href={`/${brand}`}>{brand || ""}</Link>
             </div>
-            <span className={styles.priceText}>299$</span>
+            <span className={styles.priceText}>{price || 0}$</span>
             <div className={styles.saleContainer}>
-              <span className={styles.saleText}>200$</span>
+              <span className={styles.saleText}>{sale_price || 0}$</span>
               <span className={styles.savedText}>
-                {"(You will be saved " + (299 - 200) + "$!)"}
+                {"(You will be saved " + (price - sale_price) + "$!)"}
               </span>
             </div>
             <hr />
@@ -47,6 +73,7 @@ export default function Product() {
               {sizes.map((size) => {
                 return (
                   <button
+                    key={size}
                     className={styles.sizeButton}
                     style={{
                       borderColor: selectedSize === size && "black",
@@ -69,12 +96,7 @@ export default function Product() {
             <hr />
             <div className={styles.infoContainer}>
               <h4 className={styles.sizesText}>Product Information</h4>
-              <p className={styles.infoText}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
-                esse doloribus sed debitis minima assumenda. Commodi in
-                exercitationem, deserunt laborum alias modi nobis, voluptatibus
-                beatae quidem accusamus ducimus qui ipsum.
-              </p>
+              <p className={styles.infoText}>{information}</p>
             </div>
           </div>
         </main>
@@ -82,3 +104,22 @@ export default function Product() {
     </Layout>
   );
 }
+
+Product.getInitialProps = async function ({ query }) {
+  let data = {};
+  let error = {};
+  await db
+    .collection("Products")
+    .doc(query.name)
+    .get()
+    .then(function (doc) {
+      data = doc.data();
+    })
+    .catch((e) => (error = e));
+
+  return {
+    data,
+    error,
+    query,
+  };
+};
