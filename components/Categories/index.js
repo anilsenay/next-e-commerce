@@ -7,7 +7,7 @@ import HelpIcon from "@/icons/help";
 const CategoryItem = ({ name, link, emoji }) => {
   return (
     <li className={styles.categoryItem}>
-      <Link href="/">
+      <Link href={link || "/"}>
         <a>
           <span className={styles.emoji}>{emoji}</span>
           <span className={styles.categoryName}>{name}</span>
@@ -22,13 +22,29 @@ export default function CategoriesBar() {
     <div className={styles.container}>
       <h2 className={styles.title}>Explore</h2>
       <ul className={styles.categories}>
-        <CategoryItem name="New In" emoji="⚡" />
-        <CategoryItem name="Clothing" emoji="👚" />
-        <CategoryItem name="Shoes" emoji="👠" />
-        <CategoryItem name="Accessories" emoji="👜" />
-        <CategoryItem name="Activewear" emoji="🤸" />
-        <CategoryItem name="Gifts & Living" emoji="🎁" />
-        <CategoryItem name="Inspiration" emoji="💎" />
+        <CategoryItem name="New In" emoji="⚡" link="/" />
+        <CategoryItem name="Clothing" emoji="👚" link="/category/clothing" />
+        <CategoryItem name="Shoes" emoji="👠" link="/category/shoes" />
+        <CategoryItem
+          name="Accessories"
+          emoji="👜"
+          link="/category/accessories"
+        />
+        <CategoryItem
+          name="Activewear"
+          emoji="🤸"
+          link="/category/activewear"
+        />
+        <CategoryItem
+          name="Gifts & Living"
+          emoji="🎁"
+          link="/category/gifts_and_living"
+        />
+        <CategoryItem
+          name="Inspiration"
+          emoji="💎"
+          link="/category/inspiration"
+        />
       </ul>
       <div className={styles.helpContainer}>
         <div className={styles.helpIcon}>
