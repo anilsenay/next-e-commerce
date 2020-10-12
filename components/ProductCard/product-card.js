@@ -1,25 +1,24 @@
 import React from "react";
 
-import styles from "./vertical.module.scss";
+import styles from "./product.module.scss";
 import HeartIcon from "@/icons/heart";
 
-export default function VerticalCard({
+export default function ProductCard({
   bgColor,
   brand,
   name,
   price,
   sale_price,
   image,
-  border,
   ...props
 }) {
   return (
     <div
-      className={styles.verticalCard}
+      className={styles.container}
       style={{
         backgroundColor: bgColor || "",
-        border: border && "2px solid #eee",
       }}
+      {...props}
     >
       <button className={styles.favContainer}>
         <HeartIcon width={16} height={16} />

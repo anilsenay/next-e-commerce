@@ -11,6 +11,8 @@ import { useAuth } from "@/firebase/context";
 import { useProduct } from "hooks/product.hook";
 import { db } from "@/config/firebase";
 import Button from "@/components/FilterButton";
+import VerticalCard from "@/components/HomeCard/vertical-card";
+import ProductCard from "@/components/ProductCard/product-card";
 
 const getEmoji = {
   clothing: "👚",
@@ -27,7 +29,7 @@ export default function Category({ data, query }) {
   const formattedName =
     query.category === "gifts_and_living"
       ? "Gifts & Living"
-      : query.name[0].toUpperCase() + query.category.slice(1);
+      : query.category[0].toUpperCase() + query.category.slice(1);
 
   return (
     <Layout>
@@ -47,6 +49,22 @@ export default function Category({ data, query }) {
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
             </div>
+          </div>
+          <div className={styles.products}>
+            {data.map((product) => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  data={data}
+                  brand={product.brand}
+                  name={product.product_name}
+                  image={product.cover_photo}
+                  price={product.price}
+                  sale_price={product.sale_price}
+                  border
+                />
+              );
+            })}
           </div>
         </main>
       </div>
