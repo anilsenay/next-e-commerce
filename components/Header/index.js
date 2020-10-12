@@ -36,7 +36,7 @@ export default function Header() {
         />
       </div>
       <div className={styles.rightContent}>
-        <Link href="/">
+        <Link href="/cart">
           <div className={styles.cartContainer}>
             <CartIcon width={20} height={20} className={styles.cartIcon} />
             <span>Cart: {cartLength || 0}</span>

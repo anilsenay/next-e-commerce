@@ -41,6 +41,8 @@
     .cartContainer {
       display: flex;
       align-items: center;
+      cursor: pointer;
+      padding: 8px;
 
       .cartIcon {
         margin-right: 8px;
@@ -50,7 +52,7 @@
     .profileContainer {
       display: flex;
       align-items: center;
-      margin-left: 50px;
+      margin-left: 40px;
       position: relative;
 
       .profilePhoto {

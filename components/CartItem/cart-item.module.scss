@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 100px;
+    min-width: 100px;
+    margin-right: 20px;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+
+    h4 {
+      margin-top: 0;
+    }
+  }
+
+  .price {
+    margin-left: auto;
+  }
+
+  .buttons {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: #f6f6f6;
+      border: 2px solid #eee;
+      padding: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    span {
+      padding: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
