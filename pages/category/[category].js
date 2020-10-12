@@ -55,7 +55,7 @@ export default function Category({ data, query }) {
               return (
                 <ProductCard
                   key={product.id}
-                  data={data}
+                  id={product.id}
                   brand={product.brand}
                   name={product.product_name}
                   image={product.cover_photo}
