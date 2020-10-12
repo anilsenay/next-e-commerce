@@ -5,7 +5,7 @@ import styles from "./category.module.scss";
 
 import Layout from "components/Layout";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeartIcon from "@/icons/heart";
 import { useAuth } from "@/firebase/context";
 import { useProduct } from "hooks/product.hook";
@@ -24,6 +24,8 @@ const getEmoji = {
 };
 
 export default function Category({ data, query }) {
+  const { user } = useAuth();
+
   console.log(data);
 
   const formattedName =
@@ -61,7 +63,7 @@ export default function Category({ data, query }) {
                   image={product.cover_photo}
                   price={product.price}
                   sale_price={product.sale_price}
-                  border
+                  favorite={user?.favorites?.includes(product.id)}
                 />
               );
             })}

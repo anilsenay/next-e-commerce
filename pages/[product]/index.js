@@ -5,16 +5,26 @@ import styles from "./product.module.scss";
 
 import Layout from "components/Layout";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import HeartIcon from "@/icons/heart";
 import { useAuth } from "@/firebase/context";
 import { useProduct } from "hooks/product.hook";
 import { db } from "@/config/firebase";
+import HeartFilled from "@/icons/heart-filled";
+import { removeFavorite, addFavorite } from "@/firebase/product";
+import ErrorPage from "pages/404";
 
-export default function Product({ data }) {
+export default function Product({ data, query }) {
+  if (!data.product_name) {
+    return <ErrorPage />;
+  }
+
   const [selectedSize, setSelectedSize] = useState();
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const [isFavorite, setFavorite] = useState(false);
+
+  const { user } = useAuth();
 
   const {
     brand,
@@ -26,6 +36,27 @@ export default function Product({ data }) {
     sale_price,
     sizes,
   } = data;
+
+  const id = query?.product;
+
+  useEffect(() => {
+    user && setFavorite(user.favorites.includes(id));
+  }, [user]);
+
+  const removeEvent = (id) => {
+    removeFavorite(id);
+    setFavorite(false);
+  };
+  const addEvent = (id) => {
+    addFavorite(id);
+    setFavorite(true);
+  };
+
+  const favoriteEvent = () => {
+    isFavorite ? removeEvent(id) : addEvent(id);
+  };
+
+  console.log(data);
 
   return (
     <Layout>
@@ -89,8 +120,12 @@ export default function Product({ data }) {
             <hr />
             <div className={styles.buttons}>
               <Button style={{ margin: 0 }}>Add to Cart</Button>
-              <button className={styles.favButton}>
-                <HeartIcon width={24} height={24} />
+              <button className={styles.favButton} onClick={favoriteEvent}>
+                {isFavorite ? (
+                  <HeartFilled width={24} height={24} />
+                ) : (
+                  <HeartIcon width={24} height={24} />
+                )}
               </button>
             </div>
             <hr />
@@ -113,7 +148,7 @@ Product.getInitialProps = async function ({ query }) {
     .doc(query.product)
     .get()
     .then(function (doc) {
-      data = doc.data();
+      data = { id: doc.id, ...doc.data() };
     })
     .catch((e) => (error = e));
 
