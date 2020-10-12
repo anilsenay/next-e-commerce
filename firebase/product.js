@@ -22,4 +22,12 @@ function removeFavorite(id) {
     });
 }
 
-export { addFavorite, removeFavorite };
+function addToCart(newCart) {
+  const currentUser = auth.currentUser.uid;
+
+  return db.collection("Users").doc(currentUser).update({
+    cart: newCart,
+  });
+}
+
+export { addFavorite, removeFavorite, addToCart };

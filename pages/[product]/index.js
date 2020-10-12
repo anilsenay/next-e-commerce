@@ -1,18 +1,18 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import Link from "next/link";
+
+import { db } from "@/config/firebase";
+import { useAuth } from "@/firebase/context";
+import { useCart } from "hooks/cart.hook";
+import { removeFavorite, addFavorite, addToCart } from "@/firebase/product";
 
 import styles from "./product.module.scss";
 
 import Layout from "components/Layout";
-import Link from "next/link";
-import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import HeartIcon from "@/icons/heart";
-import { useAuth } from "@/firebase/context";
-import { useProduct } from "hooks/product.hook";
-import { db } from "@/config/firebase";
 import HeartFilled from "@/icons/heart-filled";
-import { removeFavorite, addFavorite } from "@/firebase/product";
 import ErrorPage from "pages/404";
 
 export default function Product({ data, query }) {
@@ -56,7 +56,21 @@ export default function Product({ data, query }) {
     isFavorite ? removeEvent(id) : addEvent(id);
   };
 
-  console.log(data);
+  const cart = useCart().data;
+
+  console.log(cart);
+
+  const addCartEvent = () => {
+    if (selectedSize) {
+      const newCart = {
+        ...cart,
+        [id]: cart.hasOwnProperty(id)
+          ? [...cart[id], selectedSize]
+          : [selectedSize],
+      };
+      addToCart(newCart);
+    }
+  };
 
   return (
     <Layout>
@@ -119,7 +133,9 @@ export default function Product({ data, query }) {
             </div>
             <hr />
             <div className={styles.buttons}>
-              <Button style={{ margin: 0 }}>Add to Cart</Button>
+              <Button style={{ margin: 0 }} onClick={addCartEvent}>
+                Add to Cart
+              </Button>
               <button className={styles.favButton} onClick={favoriteEvent}>
                 {isFavorite ? (
                   <HeartFilled width={24} height={24} />

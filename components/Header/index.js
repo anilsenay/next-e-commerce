@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 import styles from "./header.module.scss";
@@ -8,9 +8,15 @@ import CartIcon from "@/icons/cart";
 import ArrowIcon from "@/icons/arrow";
 
 import { useAuth } from "@/firebase/context";
+import { db, auth } from "@/config/firebase";
+import { useCart } from "hooks/cart.hook";
 
 export default function Header() {
   const { user } = useAuth();
+
+  const cart = useCart().data;
+
+  const cartLength = Object.keys(cart).reduce((a, b) => a + cart[b].length, 0);
 
   return (
     <nav className={styles.container}>
@@ -33,7 +39,7 @@ export default function Header() {
         <Link href="/">
           <div className={styles.cartContainer}>
             <CartIcon width={20} height={20} className={styles.cartIcon} />
-            <span>Cart: 0</span>
+            <span>Cart: {cartLength || 0}</span>
           </div>
         </Link>
 
