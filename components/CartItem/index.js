@@ -1,12 +1,15 @@
 import React from "react";
 
 import styles from "./cart-item.module.scss";
+import { useProduct } from "hooks/product.hook";
 
-export default function CartItem({ data }) {
+export default function CartItem({ id, size, count }) {
   // const address = useAddress(data.address);
   // const { title, region, city, full_address, zipcode } = address.data;
   // console.log(new Date(data.date));
   // console.log(data.date);
+  const { data } = useProduct(id);
+
   return (
     <div className={styles.container}>
       <img
@@ -14,16 +17,13 @@ export default function CartItem({ data }) {
         className={styles.image}
       />
       <div className={styles.textContainer}>
-        <h4>
-          Product Name Product Name Product Name Product NameProduct NameProduct
-          NameProduct NameProduct Name
-        </h4>
-        <span>Size: -</span>
+        <h4>{data?.product_name || ""}</h4>
+        <span>Size: {size || "-"}</span>
       </div>
-      <span className={styles.price}>300$</span>
+      <span className={styles.price}>{data?.sale_price || "0"}$</span>
       <div className={styles.buttons}>
         <button>-</button>
-        <span>0</span>
+        <span>{count || "0"}</span>
         <button>+</button>
       </div>
     </div>

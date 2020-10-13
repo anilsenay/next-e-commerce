@@ -27,4 +27,33 @@ const useCart = (id) => {
   };
 };
 
-export { useCart };
+const useCartOnce = (id) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  console.log("once");
+
+  useEffect(() => {
+    async function fetchFromFirestore() {
+      console.log("once inner");
+
+      db.collection("Users")
+        .doc(auth.currentUser?.uid)
+        .get()
+        .then(function (doc) {
+          setData(doc.data().cart);
+          setLoading(false);
+        })
+        .catch((e) => setError(e));
+    }
+    auth.currentUser?.uid && fetchFromFirestore();
+  }, [auth.currentUser]);
+
+  return {
+    data,
+    loading,
+    error,
+  };
+};
+
+export { useCart, useCartOnce };
