@@ -5,6 +5,8 @@
   </a>
 
   <h3 align="center">E-Commerce Website</h3>
+  
+  <h4 align="center">Demo: <a href="https://next-e-commerce-example.vercel.app/">https://next-e-commerce-example.vercel.app/</a></h4>
 
   <p align="center">
     An e-commerce website example that I made in 1 week as a challenge. There are some issues that I will handle later. Using Firebase as backend.
@@ -12,9 +14,9 @@
     <br />
     <a href="https://twitter.com/anilsenay">Contact me</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/anilsenay/next-e-commerce/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/anilsenay/next-e-commerce/issues">Request Feature</a>
   </p>
 </p>
 
@@ -48,6 +50,7 @@ I saw a UI design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9
 - Filter and Sort buttons are not working yet.
 - Website is not responsive %100 because of time was not enought. I am working on it currently. It will be published soon.
 - Firebase functions could be better
+- Home page(News In) cards has no redirects. They are just placeholders.
 
 ### Built With
 
@@ -65,6 +68,7 @@ I saw a UI design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9
 ### News In
 
 ![Home Image](https://i.ibb.co/ZzG3GtN/index.png)
+- Cards has no links and they are static, they are just placeholders.
 
 ### Categories
 
