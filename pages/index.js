@@ -60,6 +60,7 @@ export default function Home() {
               name="Hugo Boss Leather Jacket"
               image="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
               price="300"
+              sale_price="200"
             />
             <VerticalCard
               bgColor="#f6f6f6"
