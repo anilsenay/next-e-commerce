@@ -83,7 +83,7 @@ export default function Header() {
                 ) : (
                   <>
                     <Link href="/login">Login</Link>
-                    <Link href="/register">Register</Link>
+                    <Link href="/login">Register</Link>
                   </>
                 )}
               </div>
