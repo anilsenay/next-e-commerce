@@ -8,15 +8,17 @@ import AddAddress from "./add-address";
 import styles from "./address.module.scss";
 import { useAuth } from "@/firebase/context";
 import { useAddresses } from "hooks/address.hook";
+import { useRouter } from "next/router";
 
 export default function Addresses() {
   const [toggleModal, setModal] = useState(false);
 
   const { user } = useAuth();
+  const userLoading = useAuth().loading;
 
   const { data, loading } = useAddresses();
 
-  console.log(data);
+  if (!user && !userLoading) useRouter().push("/login");
 
   return (
     <Layout noCategories>

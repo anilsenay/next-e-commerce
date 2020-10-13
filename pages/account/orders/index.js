@@ -7,13 +7,14 @@ import styles from "./orders.module.scss";
 import { useAuth } from "@/firebase/context";
 import OrderItem from "@/components/OrderItem";
 import { useOrders } from "hooks/order.hook";
+import { useRouter } from "next/router";
 
 export default function Orders() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
-  const { data, loading } = useOrders();
+  const { data } = useOrders();
 
-  console.log(data);
+  if (!user && !loading) useRouter().push("/login");
 
   return (
     <Layout noCategories>

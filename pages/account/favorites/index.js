@@ -7,12 +7,14 @@ import styles from "./favorites.module.scss";
 import { useAuth } from "@/firebase/context";
 import { db, auth } from "@/config/firebase";
 import ProductCard from "@/components/ProductCard/product-card";
+import { useRouter } from "next/router";
 
 export default function Favorites() {
   const [products, setProducts] = useState();
   const [loading, setLoading] = useState(true);
 
   const { user } = useAuth();
+  const userLoading = useAuth().loading;
 
   useEffect(() => {
     user?.favorites.length > 0 &&
@@ -31,7 +33,7 @@ export default function Favorites() {
         });
   }, [user]);
 
-  console.log(products);
+  if (!user && !userLoading) useRouter().push("/login");
 
   return (
     <Layout noCategories>
