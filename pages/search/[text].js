@@ -11,7 +11,9 @@ import ProductCard from "@/components/ProductCard/product-card";
 import { useAuth } from "@/firebase/context";
 
 export default function SearchPage({ data, query }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  console.log(data, query);
 
   return (
     <Layout>
@@ -32,7 +34,7 @@ export default function SearchPage({ data, query }) {
             </div>
           </div>
           <div className={styles.products}>
-            {user &&
+            {!loading &&
               data.map((product) => {
                 return (
                   <ProductCard
@@ -59,13 +61,13 @@ SearchPage.getInitialProps = async function ({ query }) {
   let error = {};
   await db
     .collection("Products")
-    .where("product_name", ">=", query.text)
-    .where("product_name", "<=", query.text + "~")
     .get()
     .then(function (querySnapshot) {
-      data = querySnapshot.docs.map(function (doc) {
-        return { id: doc.id, ...doc.data() };
-      });
+      data = querySnapshot.docs
+        .filter((item) => item.data().product_name.includes(query.text))
+        .map(function (doc) {
+          return { id: doc.id, ...doc.data() };
+        });
     })
     .catch((e) => (error = e));
 

@@ -12,14 +12,19 @@ export const useAuth = () => {
 };
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const getCurrentUser = () => {
-    db.collection("Users")
-      .doc(auth.currentUser.uid)
-      .get()
-      .then((doc) => {
-        setUser(doc.data());
-      });
+    auth.currentUser?.uid
+      ? db
+          .collection("Users")
+          .doc(auth.currentUser.uid)
+          .get()
+          .then((doc) => {
+            setUser(doc.data());
+            setLoading(false);
+          })
+      : setLoading(false);
   };
 
   useEffect(() => {
@@ -31,6 +36,7 @@ function useProvideAuth() {
 
   return {
     user,
+    loading,
     setUser,
   };
 }

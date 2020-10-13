@@ -18,9 +18,9 @@ const getEmoji = {
 };
 
 export default function Category({ data, query }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
-  console.log(data);
+  console.log(user, loading);
 
   const formattedName =
     query.category === "gifts_and_living"
@@ -47,7 +47,7 @@ export default function Category({ data, query }) {
             </div>
           </div>
           <div className={styles.products}>
-            {user &&
+            {!loading &&
               data.map((product) => {
                 return (
                   <ProductCard

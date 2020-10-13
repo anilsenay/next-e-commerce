@@ -11,7 +11,7 @@ import ProductCard from "@/components/ProductCard/product-card";
 import { useAuth } from "@/firebase/context";
 
 export default function BrandPage({ data, query }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   return (
     <Layout>
@@ -32,7 +32,7 @@ export default function BrandPage({ data, query }) {
             </div>
           </div>
           <div className={styles.products}>
-            {user &&
+            {!loading &&
               data.map((product) => {
                 return (
                   <ProductCard
