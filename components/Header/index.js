@@ -34,7 +34,7 @@ export default function Header() {
           fill="grey"
           className={styles.searchIcon}
         />
-        <form onSubmit={() => router.push(`/search/${input}`)}>
+        <form onSubmit={() => input && router.push(`/search/${input}`)}>
           <input
             className={styles.searchInput}
             placeholder="Search for products, brands and more... "

@@ -18,19 +18,23 @@
     color: grey;
     flex-grow: 1;
 
+    form {
+      width: 100%;
+
+      .searchInput {
+        border: 0;
+        display: flex;
+        width: 100%;
+        background-color: transparent;
+        font-size: 14px;
+        flex-wrap: wrap;
+      }
+    }
+
     .searchIcon {
       margin-right: 10px;
       -webkit-transform: scaleX(-1);
       transform: scaleX(-1);
-    }
-
-    .searchInput {
-      border: 0;
-      display: flex;
-      width: 100%;
-      background-color: transparent;
-      font-size: 14px;
-      flex-wrap: wrap;
     }
   }
   .rightContent {
