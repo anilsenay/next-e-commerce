@@ -35,6 +35,7 @@
   - [Installation](#installation)
 - [Issues / Feature Plans](#issues---future-plans)
 - [Contributing](#contributing)
+- [Questions & Answers](#q---a)
 - [License](#license)
 - [Contact](#contact)
 
@@ -42,7 +43,7 @@
 
 ## About The Project
 
-I saw a UI design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9404340-Shop-Clothing-Web-Page). And I wanted to code this design. So I decided to make it a full working website with NextJS but only in 1 week as challenge myself. Some issues are still there but I will check out them later.
+I saw a UI design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9404340-Shop-Clothing-Web-Page). And I wanted to code this design. So I decided to make it a full working website with NextJS but in just 1 week as challenge myself. Some issues are still there but I will check out them later.
 
 - Filter and Sort buttons are not working yet.
 - Website is not responsive %100 because of time was not enought. I am working on it currently. It will be published soon.
@@ -88,11 +89,13 @@ I saw a UI design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) version 10.13 or later
+- [Git](https://git-scm.com/) (I used 2.20.1)
 
 ### Installation
 
 1. You need to create a firebase project
-2. Clone the repo
+
+2. Clone the repo and change the directory
 
 ```sh
 git clone https://github.com/anilsenay/next-e-commerce.git
@@ -105,7 +108,7 @@ cd next-e-commerce
 npm install
 ```
 
-4. Create your .env.local file on root folder with this content
+4. Create your .env.local file on root folder(next-e-commerce) with this content. Put your firebase keys.
 
 ```
 NEXT_PUBLIC_FIREBASE_API_KEY = your-firebase-api-key
@@ -140,6 +143,25 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+<!-- Q & A -->
+
+## Q & A
+
+- Question: I created Firebase project but I do not familiar with it. What should I do then?
+  **Answer**: You can contact me about setting your Firebase project, I would gladly help you.
+
+- Question: I created Firebase project but I do not have database structure. What should I do then?
+  **Answer**: Please contact me to get database structure I created.
+
+- Question: Why did not you share your database structure?
+  **Answer**: I just want to know if someone is interest in this project :D
+
+- Question: How can I contribute?
+  **Answer**: It makes me happy even if you just star this project. For code [contributes](#contributing), you can fork the repo and open a pull request after your changes. Any feedback is also important for me. You can open issue or send me message.
+
+- Question: Did you design UI?
+  **Answer**: No, I did not design actually. I found home page design on Dribbble by [Anton Mikhaltsov](https://dribbble.com/shots/9404340-Shop-Clothing-Web-Page). Except home page, other UI choices is mine. While I made this website in limited time, I did not think on UI/UX a lot. So you can also feedback me about design.
 
 <!-- LICENSE -->
 
