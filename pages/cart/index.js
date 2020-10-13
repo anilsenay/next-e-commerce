@@ -65,7 +65,7 @@ export default function CartPage() {
 
   const router = useRouter();
 
-  if (!loading && !user) router.push("/login");
+  if (!loading && !user && typeof window !== "undefined") router.push("/login");
 
   return (
     <Layout>

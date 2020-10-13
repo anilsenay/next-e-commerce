@@ -36,12 +36,14 @@ export default function ProductCard({
 
   const favoriteEvent = () => {
     if (user && !loading) isFavorite ? removeEvent(id) : addEvent(id);
-    else router.push("/login");
+    else typeof window !== "undefined" && router.push("/login");
   };
 
   const goToProduct = (target) => {
     console.log(target);
-    target?.localName !== "button" && router.push(`/${id}`);
+    target?.localName !== "button" &&
+      typeof window !== "undefined" &&
+      router.push(`/${id}`);
   };
 
   return (

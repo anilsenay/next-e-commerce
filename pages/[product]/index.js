@@ -60,7 +60,7 @@ export default function Product({ data, query }) {
       ? isFavorite
         ? removeEvent(id)
         : addEvent(id)
-      : router.push("/login");
+      : typeof window !== "undefined" && router.push("/login");
   };
 
   const cart = useCart().data;
@@ -68,7 +68,8 @@ export default function Product({ data, query }) {
   console.log(cart);
 
   const addCartEvent = () => {
-    if (!user && !loading) router.push("/login");
+    if (!user && !loading && typeof window !== "undefined")
+      router.push("/login");
     else {
       if (selectedSize) {
         const newCart = {

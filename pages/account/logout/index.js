@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 export default function Logout() {
   const router = useRouter();
 
-  auth.signOut().finally(() => router.push("/login"));
+  auth
+    .signOut()
+    .finally(() => typeof window !== "undefined" && router.push("/login"));
   return <div></div>;
 }

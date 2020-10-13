@@ -14,7 +14,7 @@ export default function LoginPage() {
   auth.onAuthStateChanged(function (user) {
     if (user) {
       console.log(user);
-      router.push("/");
+      typeof window !== "undefined" && router.push("/");
     }
   });
 
