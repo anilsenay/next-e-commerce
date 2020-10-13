@@ -82,8 +82,19 @@ export default function Home() {
               title="New Season"
               desc="Reflect your style"
             />
-            <VerticalCard bgColor="#f6f6f6" />
-            <VerticalCard bgColor="#f6f6f6" />
+            <VerticalCard
+              bgColor="#f6f6f6"
+              name="CoolBrand Blouse"
+              image="https://i.ibb.co/0hxvyPk/kisspng-odeya-rush-america-s-next-top-model-fashion-model-5ad7cae3ccf9c9-1015400915240916198396.png"
+              price="100"
+            />
+            <VerticalCard
+              bgColor="#f6f6f6"
+              name="NiceJeans Denim Shirt"
+              image="https://i.ibb.co/dbqFKZT/kisspng-mikkel-gregers-jensen-denim-jeans-model-fashion-5b1e77ea4106c4-7687355115287234342664.png"
+              price="150"
+              sale_price="140"
+            />
           </Products>
           <Products>
             <HorizontalCard
@@ -98,8 +109,20 @@ export default function Home() {
               title="New Accessories"
               desc="Complete your combine"
             />
-            <VerticalCard bgColor="#f6f6f6" />
-            <VerticalCard bgColor="#f6f6f6" />
+            <VerticalCard
+              bgColor="#f6f6f6"
+              name="RandomBrand White Dress"
+              image="https://i.ibb.co/yQqKVkR/kisspng-wedding-dress-bridesmaid-dress-5b17cb45c471f3-3928155515282860218047.png"
+              price="150"
+              sale_price="120"
+            />
+
+            <VerticalCard
+              bgColor="#f6f6f6"
+              name="ClothWorld Hooded Yellow Jacket"
+              image="https://i.ibb.co/dtDfmFL/Kisspng-megan-fox-april-o-neil-teenage-mutant-ninja-turtle-april-5ac7c931c3d7f9-94147347152304260980.png"
+              price="150"
+            />
           </Products>
         </main>
       </div>
