@@ -50,14 +50,18 @@ export default function CartPage() {
   });
 
   const addCartEvent = (id, size) => {
-    if (size) {
-      const newCart = {
-        ...data,
-        [id]: data.hasOwnProperty(id) ? [...data[id], size] : [size],
-      };
-      addToCart(newCart);
-    }
+    const newCart = size
+      ? {
+          ...data,
+          [id]: data.hasOwnProperty(id) ? [...data[id], size] : [size],
+        }
+      : {
+          ...data,
+          [id]: data.hasOwnProperty(id) ? [...data[id], "-"] : ["-"],
+        };
+    addToCart(newCart);
   };
+
   return (
     <Layout>
       <div className={styles.container}>

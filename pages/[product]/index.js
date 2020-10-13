@@ -61,15 +61,16 @@ export default function Product({ data, query }) {
   console.log(cart);
 
   const addCartEvent = () => {
-    if (selectedSize) {
-      const newCart = {
-        ...cart,
-        [id]: cart.hasOwnProperty(id)
-          ? [...cart[id], selectedSize]
-          : [selectedSize],
-      };
-      addToCart(newCart);
-    }
+    const newCart = size
+      ? {
+          ...data,
+          [id]: data.hasOwnProperty(id) ? [...data[id], size] : [size],
+        }
+      : {
+          ...data,
+          [id]: data.hasOwnProperty(id) ? [...data[id], "-"] : ["-"],
+        };
+    addToCart(newCart);
   };
 
   return (
