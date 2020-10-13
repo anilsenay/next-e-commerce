@@ -7,6 +7,7 @@ import { useCart, useCartOnce } from "hooks/cart.hook";
 import React, { useEffect, useState } from "react";
 import { auth, db } from "@/config/firebase";
 import { useAuth } from "@/firebase/context";
+import { addToCart } from "@/firebase/product";
 
 export default function CartPage() {
   const { user } = useAuth();
@@ -47,6 +48,16 @@ export default function CartPage() {
   ].map((item) => {
     return { ...item, count: sizeCount[item.name + "__size__" + item.size] };
   });
+
+  const addCartEvent = (id, size) => {
+    if (size) {
+      const newCart = {
+        ...data,
+        [id]: data.hasOwnProperty(id) ? [...data[id], size] : [size],
+      };
+      addToCart(newCart);
+    }
+  };
   return (
     <Layout>
       <div className={styles.container}>
@@ -67,6 +78,7 @@ export default function CartPage() {
                 id={item.name}
                 size={item.size}
                 count={item.count}
+                onAdd={addCartEvent}
               />
             );
           })}
