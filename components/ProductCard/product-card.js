@@ -71,7 +71,7 @@ export default function ProductCard({
         {sale_price ? (
           <div className={styles.priceContainer}>
             <div className={styles.discount}>
-              {((price - sale_price) / price) * 100}%
+              {(((price - sale_price) / price) * 100) | 0}%
             </div>
             <div className={styles.prices}>
               <span className={styles.priceText}>{price}$</span>

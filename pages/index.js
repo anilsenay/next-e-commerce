@@ -12,17 +12,7 @@ import Layout from "components/Layout";
 import { useAuth } from "../firebase/context";
 
 export default function Home() {
-  db.collection("Users")
-    .get()
-    .then(function (querySnapshot) {
-      querySnapshot.forEach(function (doc) {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-      });
-    });
-
   const auth = useAuth();
-  console.log(auth);
 
   return (
     <Layout>
