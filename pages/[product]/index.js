@@ -61,16 +61,22 @@ export default function Product({ data, query }) {
   console.log(cart);
 
   const addCartEvent = () => {
-    const newCart = size
-      ? {
-          ...data,
-          [id]: data.hasOwnProperty(id) ? [...data[id], size] : [size],
-        }
-      : {
-          ...data,
-          [id]: data.hasOwnProperty(id) ? [...data[id], "-"] : ["-"],
-        };
-    addToCart(newCart);
+    if (selectedSize) {
+      const newCart = {
+        ...cart,
+        [id]: cart.hasOwnProperty(id)
+          ? [...cart[id], selectedSize]
+          : [selectedSize],
+      };
+      addToCart(newCart);
+    }
+    if (sizes?.length === 0) {
+      const newCart = {
+        ...cart,
+        [id]: cart.hasOwnProperty(id) ? [...cart[id], "-"] : ["-"],
+      };
+      addToCart(newCart);
+    }
   };
 
   return (
