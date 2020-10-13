@@ -14,6 +14,12 @@ export default function googleAuth() {
               email: result.additionalUserInfo.profile.email,
               name: result.additionalUserInfo.profile.given_name,
               surname: result.additionalUserInfo.profile.family_name,
+              addresses: [],
+              cart: {},
+              favorites: [],
+              orders: [],
+              phoneNumber: "",
+              photoUrl: null,
             });
           }
         });

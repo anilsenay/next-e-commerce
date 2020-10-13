@@ -10,7 +10,7 @@ function registerDatabase({ id, email, name, surname }) {
     surname,
     email,
     addresses: [],
-    cart: [],
+    cart: {},
     favorites: [],
     orders: [],
     phoneNumber: "",
