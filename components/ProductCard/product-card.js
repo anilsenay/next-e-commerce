@@ -57,7 +57,7 @@ export default function ProductCard({
         )}
       </button>
       <div className={styles.imageContainer}>
-        {image && <img className={styles.image} src={image} />}
+        {image && <img className={styles.image} src={image} loading="lazy" />}
       </div>
       <div className={styles.textContainer}>
         <h4 className={styles.brandText}>{brand}</h4>

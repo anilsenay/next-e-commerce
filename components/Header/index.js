@@ -48,6 +48,7 @@ export default function Header() {
             <img
               src={user?.photoUrl || "https://picsum.photos/200/200"}
               className={styles.profilePhoto}
+              loading="lazy"
             />
             <span>
               Hello{" "}

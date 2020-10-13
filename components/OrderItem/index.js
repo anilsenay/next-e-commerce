@@ -34,10 +34,12 @@ export default function OrderItem({ data }) {
         <img
           className={styles.photo}
           src="https://productimages.hepsiburada.net/s/34/120/10426321043506.jpg"
+          loading="lazy"
         />
         <img
           className={styles.photo}
           src="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
+          loading="lazy"
         />
       </div>
       <hr />

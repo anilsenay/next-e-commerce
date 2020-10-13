@@ -15,6 +15,7 @@ export default function CartItem({ id, size, count, onAdd }) {
       <img
         src="https://productimages.hepsiburada.net/s/42/550/10728905572402.jpg"
         className={styles.image}
+        loading="lazy"
       />
       <div className={styles.textContainer}>
         <h4>{data?.product_name || ""}</h4>

@@ -21,7 +21,7 @@ export default function HorizontalCard({
         >
           <h3 style={{ marginBottom: 0, fontSize: 32 }}>{title}</h3>
         </div>
-        <img className={styles.bgImage} src={image} />
+        <img className={styles.bgImage} src={image} loading="lazy" />
       </div>
     );
   }
@@ -37,7 +37,7 @@ export default function HorizontalCard({
       </div>
       {image && (
         <div className={styles.imageContainer}>
-          <img className={styles.image} src={image} />
+          <img className={styles.image} src={image} loading="lazy" />
         </div>
       )}
     </div>
