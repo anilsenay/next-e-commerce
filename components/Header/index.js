@@ -10,12 +10,16 @@ import ArrowIcon from "@/icons/arrow";
 import { useAuth } from "@/firebase/context";
 import { db, auth } from "@/config/firebase";
 import { useCart } from "hooks/cart.hook";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const [input, setInput] = useState(null);
+
+  const router = useRouter();
+
   const { user } = useAuth();
 
   const cart = useCart().data;
-
   const cartLength = Object.keys(cart).reduce((a, b) => a + cart[b].length, 0);
 
   return (
@@ -30,10 +34,13 @@ export default function Header() {
           fill="grey"
           className={styles.searchIcon}
         />
-        <input
-          className={styles.searchInput}
-          placeholder="Search for products, brands and more... "
-        />
+        <form onSubmit={() => router.push(`/search/${input}`)}>
+          <input
+            className={styles.searchInput}
+            placeholder="Search for products, brands and more... "
+            onChange={(e) => setInput(e.target.value)}
+          />
+        </form>
       </div>
       <div className={styles.rightContent}>
         <Link href="/cart">

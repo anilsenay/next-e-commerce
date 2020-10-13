@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  .main {
+    .header {
+      display: flex;
+      margin-bottom: 40px;
+
+      .title {
+        font-size: 28px;
+        margin: 0;
+
+        .emoji {
+          font-weight: 400;
+          font-family: apple color emoji, segoe ui emoji, noto color emoji,
+            android emoji, emojisymbols, emojione mozilla, twemoji mozilla,
+            segoe ui symbol;
+          margin-right: 10px;
+        }
+      }
+
+      .headerButtons {
+        display: flex;
+        margin-left: auto;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      padding-bottom: 30px;
+    }
+  }
+}

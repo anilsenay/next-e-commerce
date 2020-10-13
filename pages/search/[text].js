@@ -1,31 +1,17 @@
+import React from "react";
+import { db } from "@/config/firebase";
+
 import Head from "next/head";
 
-import styles from "./category.module.scss";
+import styles from "./search.module.scss";
 
 import Layout from "components/Layout";
-import { useAuth } from "@/firebase/context";
-import { db } from "@/config/firebase";
 import Button from "@/components/FilterButton";
 import ProductCard from "@/components/ProductCard/product-card";
+import { useAuth } from "@/firebase/context";
 
-const getEmoji = {
-  clothing: "👚",
-  shoes: "👠",
-  accessories: "👜",
-  activewear: "🤸",
-  gifts_and_living: "🎁",
-  inspiration: "💎",
-};
-
-export default function Category({ data, query }) {
+export default function SearchPage({ data, query }) {
   const { user } = useAuth();
-
-  console.log(data);
-
-  const formattedName =
-    query.category === "gifts_and_living"
-      ? "Gifts & Living"
-      : query.category[0].toUpperCase() + query.category.slice(1);
 
   return (
     <Layout>
@@ -38,8 +24,7 @@ export default function Category({ data, query }) {
         <main className={styles.main}>
           <div className={styles.header}>
             <h1 className={styles.title}>
-              <span className={styles.emoji}>{getEmoji[query.category]}</span>
-              {formattedName}
+              Listing {data.length} products for "{query.text}"
             </h1>
             <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
@@ -69,19 +54,18 @@ export default function Category({ data, query }) {
   );
 }
 
-Category.getInitialProps = async function ({ query }) {
+SearchPage.getInitialProps = async function ({ query }) {
   let data = {};
   let error = {};
-
   await db
     .collection("Products")
-    .where("category", "==", query.category.toLowerCase())
+    .where("product_name", ">=", query.text)
+    .where("product_name", "<=", query.text + "~")
     .get()
     .then(function (querySnapshot) {
-      const products = querySnapshot.docs.map(function (doc) {
+      data = querySnapshot.docs.map(function (doc) {
         return { id: doc.id, ...doc.data() };
       });
-      data = products;
     })
     .catch((e) => (error = e));
 
