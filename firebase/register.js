@@ -9,13 +9,12 @@ function registerDatabase({ id, email, name, surname }) {
     name,
     surname,
     email,
-    addresses = [],
-    cart = [],
-    favorites = [],
-    orders = [],
-    phoneNumber = "",
-    photoUrl = null,
-    
+    addresses: [],
+    cart: [],
+    favorites: [],
+    orders: [],
+    phoneNumber: "",
+    photoUrl: null,
   });
 }
 
