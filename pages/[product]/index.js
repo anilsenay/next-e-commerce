@@ -110,7 +110,7 @@ export default function Product({ data, query }) {
           <div className={styles.productInfos}>
             <div className={styles.header}>
               <h1 className={styles.productTitle}>{product_name || ""}</h1>
-              <Link href={`/${brand}`}>{brand || ""}</Link>
+              <Link href={`/brand/${brand}`}>{brand || ""}</Link>
             </div>
             <span className={styles.priceText}>{price || 0}$</span>
             <div className={styles.saleContainer}>
