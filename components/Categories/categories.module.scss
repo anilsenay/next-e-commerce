@@ -5,6 +5,7 @@
   flex-direction: column;
   font-size: 14px;
   font-weight: 500;
+  background-color: white;
 
   .title {
     font-size: 28px;
@@ -35,9 +36,10 @@
   .helpContainer {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     margin-left: -10px;
+    z-index: -1;
 
     .helpIcon {
       padding: 15px;
