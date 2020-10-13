@@ -6,6 +6,7 @@ import Link from "next/link";
 import HeartFilled from "@/icons/heart-filled";
 import { addFavorite, removeFavorite } from "@/firebase/product";
 import { useRouter } from "next/router";
+import { useAuth } from "@/firebase/context";
 
 export default function ProductCard({
   bgColor,
@@ -20,6 +21,8 @@ export default function ProductCard({
 }) {
   const [isFavorite, setFavorite] = useState(favorite);
 
+  const { user, loading } = useAuth();
+
   const router = useRouter();
 
   const removeEvent = (id) => {
@@ -32,7 +35,8 @@ export default function ProductCard({
   };
 
   const favoriteEvent = () => {
-    isFavorite ? removeEvent(id) : addEvent(id);
+    if (user && !loading) isFavorite ? removeEvent(id) : addEvent(id);
+    else router.push("/login");
   };
 
   const goToProduct = (target) => {

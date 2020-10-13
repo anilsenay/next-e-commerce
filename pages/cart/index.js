@@ -8,10 +8,11 @@ import React, { useEffect, useState } from "react";
 import { auth, db } from "@/config/firebase";
 import { useAuth } from "@/firebase/context";
 import { addToCart } from "@/firebase/product";
+import { useRouter } from "next/router";
 
 export default function CartPage() {
-  const { user } = useAuth();
-  const { data, loading, error } = useCart();
+  const { user, loading } = useAuth();
+  const { data } = useCart();
 
   const cartLength = Object.keys(data).reduce((a, b) => a + data[b].length, 0);
 
@@ -61,6 +62,10 @@ export default function CartPage() {
         };
     addToCart(newCart);
   };
+
+  const router = useRouter();
+
+  if (!loading && !user) router.push("/login");
 
   return (
     <Layout>

@@ -14,6 +14,7 @@ import Button from "@/components/Button";
 import HeartIcon from "@/icons/heart";
 import HeartFilled from "@/icons/heart-filled";
 import ErrorPage from "pages/404";
+import { useRouter } from "next/router";
 
 export default function Product({ data, query }) {
   if (!data.product_name) {
@@ -24,7 +25,9 @@ export default function Product({ data, query }) {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
   const [isFavorite, setFavorite] = useState(false);
 
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  const router = useRouter();
 
   const {
     brand,
@@ -53,7 +56,11 @@ export default function Product({ data, query }) {
   };
 
   const favoriteEvent = () => {
-    isFavorite ? removeEvent(id) : addEvent(id);
+    user
+      ? isFavorite
+        ? removeEvent(id)
+        : addEvent(id)
+      : router.push("/login");
   };
 
   const cart = useCart().data;
@@ -61,21 +68,24 @@ export default function Product({ data, query }) {
   console.log(cart);
 
   const addCartEvent = () => {
-    if (selectedSize) {
-      const newCart = {
-        ...cart,
-        [id]: cart.hasOwnProperty(id)
-          ? [...cart[id], selectedSize]
-          : [selectedSize],
-      };
-      addToCart(newCart);
-    }
-    if (sizes?.length === 0) {
-      const newCart = {
-        ...cart,
-        [id]: cart.hasOwnProperty(id) ? [...cart[id], "-"] : ["-"],
-      };
-      addToCart(newCart);
+    if (!user && !loading) router.push("/login");
+    else {
+      if (selectedSize) {
+        const newCart = {
+          ...cart,
+          [id]: cart.hasOwnProperty(id)
+            ? [...cart[id], selectedSize]
+            : [selectedSize],
+        };
+        addToCart(newCart);
+      }
+      if (sizes?.length === 0) {
+        const newCart = {
+          ...cart,
+          [id]: cart.hasOwnProperty(id) ? [...cart[id], "-"] : ["-"],
+        };
+        addToCart(newCart);
+      }
     }
   };
 
