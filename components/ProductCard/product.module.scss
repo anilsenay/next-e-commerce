@@ -98,6 +98,10 @@
     transition: all 0.4s ease-in-out;
     flex-shrink: 0;
     height: 320px;
+    
+    img {
+      object-fit: contain;
+    }
   }
 
   .bgImage {
