@@ -117,6 +117,7 @@ export default function Product({ data, query }) {
                 );
               })}
             </div>
+            <hr />
           </div>
           <div className={styles.productInfos}>
             <div className={styles.header}>
