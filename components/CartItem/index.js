@@ -17,7 +17,7 @@ export default function CartItem({ id, size, count, onAdd }) {
         <h4>{data?.product_name || ""}</h4>
         <span>Size: {size || "-"}</span>
       </div>
-      <span className={styles.price}>{data?.sale_price || "0"}$</span>
+      <span className={styles.price}>{data?.sale_price * count || "0"}$</span>
       <div className={styles.buttons}>
         <button>-</button>
         <span>{count || "0"}</span>

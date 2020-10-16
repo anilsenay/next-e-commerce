@@ -1,3 +1,5 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   width: 100%;
   padding: 20px;
@@ -6,6 +8,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  flex-direction: column;
+
+  @include md {
+    flex-direction: row;
+  }
 
   img {
     width: 100px;
@@ -16,21 +23,41 @@
   .textContainer {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+
+    @include md {
+      margin-right: 50px;
+    }
 
     h4 {
-      margin-top: 0;
+      margin-top: 10;
+
+      @include md {
+        margin-top: 0;
+      }
     }
   }
 
   .price {
-    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+
+    @include md {
+      margin-left: auto;
+      font-size: 18px;
+    }
   }
 
   .buttons {
-    margin-left: 40px;
     display: flex;
     align-items: center;
+
+    @include md {
+      margin-left: 40px;
+    }
 
     button {
       background-color: #f6f6f6;

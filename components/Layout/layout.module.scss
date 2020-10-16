@@ -1,3 +1,5 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   display: flex;
   align-items: center;
@@ -12,8 +14,14 @@
 
     .main {
       display: flex;
-      margin-top: 50px;
       overflow: hidden;
+      flex-direction: column;
+      margin-top: 30px;
+
+      @include md {
+        flex-direction: row;
+        margin-top: 50px;
+      }
     }
   }
 }

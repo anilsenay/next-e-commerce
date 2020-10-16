@@ -1,9 +1,16 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   width: 100%;
   .main {
     .header {
       display: flex;
       margin-bottom: 40px;
+      flex-direction: column;
+
+      @include md {
+        flex-direction: row;
+      }
 
       .title {
         font-size: 28px;
@@ -20,9 +27,14 @@
 
       .headerButtons {
         display: flex;
-        margin-left: auto;
         font-size: 14px;
         font-weight: bold;
+        margin-top: 12px;
+
+        @include md {
+          margin-left: auto;
+          margin-top: 0px;
+        }
       }
     }
     .products {

@@ -1,8 +1,15 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   width: 100%;
 
   .main {
     display: flex;
+    flex-direction: column;
+
+    @include lg {
+      flex-direction: row;
+    }
 
     .photosContainer {
       height: 100%;
@@ -10,8 +17,17 @@
       position: relative;
       margin-right: 20px;
 
+      hr {
+        margin-bottom: 20px;
+        @include lg {
+          display: none;
+        }
+      }
+
       .carouselContainer {
         position: relative;
+        display: flex;
+        justify-content: center;
         .carousel {
           position: absolute;
           top: 0;
@@ -20,7 +36,11 @@
           display: flex;
         }
         img {
-          max-width: 500px;
+          max-width: 90vw;
+
+          @include md {
+            max-width: 50vw;
+          }
         }
       }
 
@@ -28,6 +48,7 @@
         display: flex;
         justify-content: center;
         margin-top: 40px;
+        padding-bottom: 20px;
 
         img {
           max-width: 80px;
