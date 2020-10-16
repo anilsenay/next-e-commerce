@@ -37,7 +37,7 @@
   - [Installation](#installation)
 - [Issues / Feature Plans](#issues---future-plans)
 - [Contributing](#contributing)
-- [Questions & Answers](#q---a)
+- [Questions & Answers](#q--a)
 - [License](#license)
 - [Contact](#contact)
 
@@ -133,7 +133,7 @@ npm run dev
 - Filter and Sort buttons
 - Optimize firestore query functions
 - On cart page, decrease item button is not working
-- Website will be %100 responsive
+- ~~Website will be %100 responsive~~
 - Replace some HTML tags with semantic tags
 
 <!-- CONTRIBUTING -->
