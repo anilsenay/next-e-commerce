@@ -1,3 +1,5 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   width: 100%;
   display: flex;
@@ -10,17 +12,28 @@
 
   .content {
     display: flex;
+    flex-direction: column;
     margin-top: 20px;
+
+    @include lg {
+      flex-direction: row;
+    }
 
     h4 {
       margin-bottom: 30px;
     }
     .accountContainer {
-      width: 45%;
-      margin-right: auto;
+      width: 100%;
+      @include lg {
+        width: 45%;
+        margin-right: auto;
+      }
     }
     .passwordContainer {
-      width: 45%;
+      width: 100%;
+      @include lg {
+        width: 45%;
+      }
     }
     hr {
       color: #f6f6f655;
