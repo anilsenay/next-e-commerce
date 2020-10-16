@@ -1,12 +1,21 @@
+@import "../../styles/breakpoints.scss";
+
 .container {
   padding: 18px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   min-width: 120px;
   border: 2px solid #f2f2f2;
   border-radius: 10px;
   display: flex;
   align-items: center;
+  width: 100%;
+
+  @include md {
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
   .counter {
     background-color: black;
