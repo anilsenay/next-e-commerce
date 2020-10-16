@@ -78,12 +78,16 @@
     }
   }
   .helpContainer {
-    display: flex;
+    display: none;
     align-items: center;
     position: fixed;
     bottom: 30px;
     margin-left: -10px;
     z-index: -1;
+
+    @include md {
+      display: flex;
+    }
 
     .helpIcon {
       padding: 15px;
