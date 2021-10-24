@@ -23,15 +23,15 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <div className={styles.header}>
+          <header className={styles.header}>
             <h1 className={styles.title}>
               <span className={styles.emoji}>⚡</span>New In
             </h1>
-            <div className={styles.headerButtons}>
+            <nav className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
-          </div>
+            </nav>
+          </header>
 
           <Products>
             <HorizontalCard
