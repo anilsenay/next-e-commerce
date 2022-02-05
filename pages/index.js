@@ -6,7 +6,6 @@ import HorizontalCard from "components/HomeCard/horizontal-card";
 import VerticalCard from "components/HomeCard/vertical-card";
 import Products from "components/HomeProducts";
 
-import { db } from "config/firebase";
 import Layout from "components/Layout";
 
 import { useAuth } from "../firebase/context";

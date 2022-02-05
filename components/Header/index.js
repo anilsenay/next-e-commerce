@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 import styles from "./header.module.scss";
@@ -8,7 +8,6 @@ import CartIcon from "@/icons/cart";
 import ArrowIcon from "@/icons/arrow";
 
 import { useAuth } from "@/firebase/context";
-import { db, auth } from "@/config/firebase";
 import { useCart } from "hooks/cart.hook";
 import { useRouter } from "next/router";
 import MenuIcon from "@/icons/menu";
@@ -17,7 +16,6 @@ export default function Header() {
   const [showHeader, setShowHeader] = useState({
     transform: "translate3d(100vw, 0, 0)",
   });
-  const [input, setInput] = useState(null);
 
   const router = useRouter();
 
@@ -25,6 +23,15 @@ export default function Header() {
 
   const cart = useCart().data;
   const cartLength = Object.keys(cart).reduce((a, b) => a + cart[b].length, 0);
+
+  const onSearch = (e) =>{
+    // typeof window !== "undefined" &&
+    // router.push(`/search/${input}`)
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const { search } = Object.fromEntries(form.entries()) //Gets the form input values as key value pair. key is the name of the input.
+    console.log(search)
+  }
 
   return (
     <nav className={styles.container}>
@@ -85,16 +92,12 @@ export default function Header() {
           className={styles.searchIcon}
         />
         <form
-          onSubmit={() =>
-            input &&
-            typeof window !== "undefined" &&
-            router.push(`/search/${input}`)
-          }
+          onSubmit={onSearch}
         >
           <input
             className={styles.searchInput}
+            name="search"
             placeholder="Search for products, brands and more... "
-            onChange={(e) => setInput(e.target.value)}
           />
         </form>
       </div>

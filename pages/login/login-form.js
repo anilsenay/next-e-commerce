@@ -7,8 +7,8 @@ import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Link from "next/link";
 import SocialMediaButton from "@/components/SocialMediaButton";
-import emailLogin from "firebase/login";
-import googleAuth from "firebase/google-auth";
+import emailLogin from "@/firebase/login";
+import googleAuth from "@/firebase/google-auth";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("* Email is required."),
@@ -39,9 +39,9 @@ export default function LoginForm() {
         name="email"
         register={register}
         placeholder="E-mail"
-        error={errors.email}
+        error={errors?.email}
       />
-      {errors.email && (
+      {errors && errors?.email && (
         <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
           {errors.email.message}
         </span>
@@ -52,11 +52,11 @@ export default function LoginForm() {
         register={register}
         placeholder="Password"
         type="password"
-        error={errors.password}
+        error={errors?.password}
       />
-      {errors.password && (
+      {errors && errors?.password && (
         <span style={{ color: "red", marginTop: 4, fontSize: 14 }}>
-          {errors.password.message}
+          {errors?.password.message}
         </span>
       )}
 

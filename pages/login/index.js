@@ -5,6 +5,7 @@ import styles from "./login.module.scss";
 import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
 import { auth } from "../../config/firebase";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [page, setPage] = useState("login");
@@ -20,7 +21,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.container}>
-      <a className={styles.logo}>Shopping</a>
+      <Link href="/"><a className={styles.logo}>Shopping</a></Link>
       <div className={styles.content}>
         <div className={styles.switchContainer}>
           <button
