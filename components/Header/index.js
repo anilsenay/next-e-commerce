@@ -24,13 +24,14 @@ export default function Header() {
   const cart = useCart().data;
   const cartLength = Object.keys(cart).reduce((a, b) => a + cart[b].length, 0);
 
-  const onSearch = (e) =>{
-    // typeof window !== "undefined" &&
-    // router.push(`/search/${input}`)
+  const onSearch = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const { search } = Object.fromEntries(form.entries()) //Gets the form input values as key value pair. key is the name of the input.
-    console.log(search)
+    if (typeof window !== "undefined") {
+      router.push(`/search/${search.trim()}`)
+    }
+
   }
 
   return (
