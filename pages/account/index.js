@@ -51,14 +51,14 @@ export default function AccountPage() {
   const [photo, setPhoto] = useState(null);
   const { user, loading } = useAuth();
 
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, watch, formState:{errors} } = useForm({
     resolver: yupResolver(schema),
   });
 
   const {
     register: register2,
     handleSubmit: handleSubmit2,
-    errors: errors2,
+    formState:{errors: errors2},
     getValues,
   } = useForm({
     resolver: yupResolver(schema2),

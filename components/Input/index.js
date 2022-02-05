@@ -2,7 +2,16 @@ import React, { useState } from "react";
 
 import styles from "./input.module.scss";
 
+
+/**
+ * @param {Object} props
+ * @param {string} props.name
+ * @param {import("react-hook-form").UseFormRegister<import("react-hook-form").FieldValue>} props.register
+ * @param {boolean} props.required
+ * @returns {JSX.Element}
+ */
 export default function Input({
+  name,
   register,
   required = true,
   error,
@@ -18,7 +27,8 @@ export default function Input({
         backgroundColor: focus && "white",
         margin: noMargin && 0,
       }}
-      ref={register && register({ required })}
+      name={name}
+      { ...register(name, { required })}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
       {...props}
